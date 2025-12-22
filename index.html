@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معماری کلینیک هوشمند آلفا - iOS 16 Style</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;400;700;900&display=swap');
+
+        :root {
+            --ios-bg: #f2f2f7;
+            --ios-glass: rgba(255, 255, 255, 0.7);
+            --ios-border: rgba(255, 255, 255, 0.5);
+            --blue: #007aff;
+            --red: #ff3b30;
+            --green: #34c759;
+            --orange: #ff9500;
+            --indigo: #5856d6;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+            background-attachment: fixed;
+            color: #1c1c1e;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        /* iOS Glassmorphism Card */
+        .glass-card {
+            background: var(--ios-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--ios-border);
+            border-radius: 28px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:active {
+            transform: scale(0.98);
+        }
+
+        /* Typography iOS Style */
+        .ios-title {
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .ios-header {
+            background: rgba(242, 242, 247, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 0.5px solid rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .section-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .item-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 16px;
+            margin-bottom: 8px;
+            border: 0.5px solid rgba(255,255,255,0.5);
+        }
+
+        /* Pulse Animation for Data Flow */
+        .data-stream {
+            position: relative;
+        }
+        
+        .data-stream::after {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--blue);
+            border-radius: 50%;
+            animation: flow 3s infinite linear;
+        }
+
+        @keyframes flow {
+            0% { opacity: 0; transform: scale(1); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: scale(2); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="pb-10">
+
+    <!-- iOS Navigation Bar Style Header -->
+    <header class="ios-header py-4 px-6 mb-8">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-right">
+                <h1 class="text-2xl ios-title text-slate-900">معماری سیستم آلفا</h1>
+                <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Smart Clinic Infrastructure</p>
+            </div>
+            
+            <div class="flex items-center gap-4 bg-white/40 p-2 rounded-2xl border border-white/60">
+                <div class="text-left px-3 border-l border-slate-300">
+                    <p class="text-[10px] text-slate-500 leading-none">طراحی شده توسط</p>
+                    <p class="text-sm font-black text-blue-600">محمد جلیلوند</p>
+                </div>
+                <div class="text-left px-3">
+                    <p class="text-[10px] text-slate-500 leading-none">مجری پروژه</p>
+                    <p class="text-sm font-black text-slate-800">فناوران هوشمند الماس پارس</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4">
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+            
+            <!-- Left Column -->
+            <div class="md:col-span-3 space-y-6">
+                <!-- Reception -->
+                <div class="glass-card p-5">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="section-icon bg-[#007aff]">
+                            <i data-lucide="scan-face" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="font-bold text-lg">پذیرش هوشمند</h2>
+                    </div>
+                    <div class="item-row">
+                        <i data-lucide="user-check" class="w-4 h-4 text-blue-500"></i>
+                        <span class="text-sm">تشخیص چهره بیومتریک</span>
+                    </div>
+                    <div class="item-row">
+                        <i data-lucide="file-text" class="w-4 h-4 text-blue-500"></i>
+                        <span class="text-sm">اسکن هوشمند مدارک</span>
+                    </div>
+                </div>
+
+                <!-- Patient Wristband -->
+                <div class="glass-card p-5">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="section-icon bg-[#ff3b30]">
+                            <i data-lucide="watch" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="font-bold text-lg">دستبند هوشمند</h2>
+                    </div>
+                    <div class="grid grid-cols-1 gap-2">
+                        <div class="item-row justify-between">
+                            <span class="text-sm font-medium">ضربان قلب</span>
+                            <i data-lucide="heart" class="w-4 h-4 text-red-500"></i>
+                        </div>
+                        <div class="item-row justify-between">
+                            <span class="text-sm font-medium">اکسیژن خون</span>
+                            <i data-lucide="wind" class="w-4 h-4 text-blue-400"></i>
+                        </div>
+                        <div class="item-row justify-between">
+                            <span class="text-sm font-medium">فشار خون</span>
+                            <i data-lucide="activity" class="w-4 h-4 text-rose-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Column (Core) -->
+            <div class="md:col-span-6">
+                <div class="glass-card h-full p-8 flex flex-col justify-between border-2 border-white/80" style="background: rgba(255,255,255,0.4);">
+                    <div class="text-center">
+                        <div class="w-24 h-24 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-[30%] mx-auto mb-6 flex items-center justify-center shadow-2xl shadow-blue-500/30">
+                            <i data-lucide="shield-check" class="w-12 h-12 text-white"></i>
+                        </div>
+                        <h2 class="text-3xl ios-title text-slate-900 mb-2">Alpha Core System</h2>
+                        <div class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-[10px] font-black uppercase">
+                           <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                           سیستم عملیاتی فعال
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-10">
+                        <div class="bg-white/60 p-4 rounded-2xl flex items-center gap-3 border border-white">
+                            <i data-lucide="users" class="w-5 h-5 text-indigo-500"></i>
+                            <span class="text-sm font-bold">مدیریت بیماران</span>
+                        </div>
+                        <div class="bg-white/60 p-4 rounded-2xl flex items-center gap-3 border border-white">
+                            <i data-lucide="user-cog" class="w-5 h-5 text-indigo-500"></i>
+                            <span class="text-sm font-bold">مدیریت پرسنل</span>
+                        </div>
+                        <div class="bg-white/60 p-4 rounded-2xl flex items-center gap-3 border border-white">
+                            <i data-lucide="brain" class="w-5 h-5 text-blue-600"></i>
+                            <span class="text-sm font-bold">هوش مصنوعی</span>
+                        </div>
+                        <div class="bg-white/60 p-4 rounded-2xl flex items-center gap-3 border border-white">
+                            <i data-lucide="landmark" class="w-5 h-5 text-slate-700"></i>
+                            <span class="text-sm font-bold">مدیریت ساختمان</span>
+                        </div>
+                        <div class="col-span-full bg-slate-900 text-white p-4 rounded-2xl flex items-center justify-between shadow-lg">
+                            <span class="text-sm font-medium">لایه امنیت و حفظ حریم خصوصی</span>
+                            <i data-lucide="lock" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="md:col-span-3 space-y-6">
+                <!-- Building -->
+                <div class="glass-card p-5">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="section-icon bg-[#34c759]">
+                            <i data-lucide="building-2" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="font-bold text-lg">پایش ساختمان</h2>
+                    </div>
+                    <div class="item-row">
+                        <i data-lucide="thermometer" class="w-4 h-4 text-green-600"></i>
+                        <span class="text-sm">دما و اکسیژن محیط</span>
+                    </div>
+                    <div class="item-row">
+                        <i data-lucide="settings" class="w-4 h-4 text-green-600"></i>
+                        <span class="text-sm">سنسور تجهیزات حساس</span>
+                    </div>
+                </div>
+
+                <!-- Staff Kit -->
+                <div class="glass-card p-5">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="section-icon bg-[#ff9500]">
+                            <i data-lucide="stethoscope" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="font-bold text-lg">کیت پرسنل</h2>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="item-row"><i data-lucide="smartphone" class="w-4 h-4 text-orange-500"></i> تبلت هوشمند</div>
+                        <div class="item-row"><i data-lucide="watch" class="w-4 h-4 text-orange-500"></i> ساعت دریافت هشدار</div>
+                    </div>
+                </div>
+
+                <!-- Lab -->
+                <div class="glass-card p-4 bg-indigo-50/50">
+                    <div class="flex justify-between gap-1">
+                        <span class="bg-white/80 px-2 py-1 rounded-lg text-[10px] font-bold border border-indigo-100">آزمایشگاه</span>
+                        <span class="bg-white/80 px-2 py-1 rounded-lg text-[10px] font-bold border border-indigo-100">MRI</span>
+                        <span class="bg-white/80 px-2 py-1 rounded-lg text-[10px] font-bold border border-indigo-100">X-Ray</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Infrastructure Footer -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card p-6 flex items-center justify-between border-b-4 border-blue-500">
+                <div>
+                    <h4 class="ios-title text-xl">مرکز داده مرکزی</h4>
+                    <p class="text-sm text-slate-500">پایگاه داده SQL / NoSQL</p>
+                </div>
+                <div class="p-4 bg-blue-50 rounded-2xl">
+                    <i data-lucide="database" class="w-8 h-8 text-blue-600"></i>
+                </div>
+            </div>
+            <div class="glass-card p-6 flex items-center justify-between border-b-4 border-indigo-500">
+                <div>
+                    <h4 class="ios-title text-xl">تحلیل هوشمند AI</h4>
+                    <p class="text-sm text-slate-500">موتور پردازش ابری آلفا</p>
+                </div>
+                <div class="p-4 bg-indigo-50 rounded-2xl">
+                    <i data-lucide="brain-circuit" class="w-8 h-8 text-indigo-600"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center mt-12 py-6">
+        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Designed by Mohammad Jalilvand © 2025</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
